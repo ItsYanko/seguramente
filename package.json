@@ -1,0 +1,30 @@
+{
+  "name": "quiz-internetsegura",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ItsYanko/quiz-internetsegura.git"
+  },
+  "keywords": [
+    "quiz",
+    "internet",
+    "internetsegura",
+    "safety"
+  ],
+  "author": "yanko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ItsYanko/quiz-internetsegura/issues"
+  },
+  "homepage": "https://github.com/ItsYanko/quiz-internetsegura#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "ms": "^2.1.3",
+    "node-persist": "^3.1.0"
+  }
+}

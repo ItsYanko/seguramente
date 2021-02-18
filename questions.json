@@ -1,0 +1,24 @@
+[
+    {
+        "index": 0,
+        "question": "Yes?",
+        "options": [
+            "yea",
+            "nah"
+        ],
+        "correct": [
+            1
+        ]
+    },
+    {
+        "index": 1,
+        "question": "No?",
+        "options": [
+            "yea",
+            "nah"
+        ],
+        "correct": [
+            2
+        ]
+    }
+]
