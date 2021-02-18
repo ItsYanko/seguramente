@@ -105,3 +105,6 @@ dist
 
 # Visual Studio Code Configuration
 .vscode/
+
+# Don't sync cache
+api/storage/
