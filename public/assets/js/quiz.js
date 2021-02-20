@@ -9,8 +9,22 @@ $(document).ready(async () => {
         actions.get();
 })
 
-$(window).on('resize', function () {
+$(window).on('resize', () => {
     resizeText();
+})
+
+/* Custom Cursor */
+$(window).on('mousemove', (e) => {
+    if ($(e.target).hasClass("answer") || $(e.target).parent().hasClass("answer"))
+        $(".cursor").addClass("hover");
+    else
+        $(".cursor").removeClass("hover");
+
+    if ($(window).width() >= e.pageX + $(".cursor").width())
+        $(".cursor").css('left', e.pageX);
+
+    if ($(window).height() >= e.pageY + $(".cursor").height())
+        $(".cursor").css('top', e.pageY);
 })
 
 /* API Class Handlers */
@@ -50,8 +64,11 @@ const question = {
         $($(".answers .answer")[index]).addClass("selected");
         $(".answers").addClass("selected");
     },
-    result: () => {
-
+    result: (valid) => {
+        if (valid)
+            $(".answer.selected").addClass("correct");
+        else
+            $(".answer.selected").addClass("incorrect");
     },
     set: {
         options: (data) => {
@@ -62,7 +79,9 @@ const question = {
             });
             $(".answers").html(listHTML);
             $(".answer").click((e) => {
-                actions.submit($(e.currentTarget).index())
+                if (!$(e.currentTarget).hasClass("selected")) {
+                    actions.submit($(e.currentTarget).index())
+                }
             })
         },
         question: (quest) => {

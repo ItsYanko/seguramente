@@ -2,6 +2,11 @@
     --progress-val: 50%;
     --progress-text: "10/20";
     --selected-index: 0;
+    --answer-width: 0%;
+}
+
+* {
+    cursor: none;
 }
 
 body {
@@ -115,12 +120,7 @@ body {
     box-shadow: 0 0 10px #00000040;
     margin-bottom: 10px;
     padding: 25px;
-    cursor: pointer;
     transition: .25s box-shadow, .25s background-color, .5s height, .5s font-size, .5s opacity;
-}
-
-.answers.selecting>.answer {
-    opacity: 0;
 }
 
 .answers.selected>.answer {
@@ -128,24 +128,42 @@ body {
 }
 
 .answer.selected {
+    position: relative;
+    background-color: #676767bf !important;
     opacity: 1 !important;
     display: flex !important;
     min-height: 100px;
     font-size: 30px;
     margin: 0;
+    --answer-width: 100%;
 }
 
-.answer.selected, .answer:hover {
+.answer.selected span {
+    mix-blend-mode: color-dodge;
+}
+
+.answer:not(.correct):not(.incorrect)::before {
+    content: "";
+    height: 100%;
+    width: var(--answer-width);
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #676767bf;
+    transition: 15s width;
+}
+
+.answer:hover {
     background-color: #522da8bf;
     box-shadow: 0 0 10px #00000080;
 }
 
-.answer.selected.wrong {
-    background-color: #f04747;
+.answer.selected.incorrect {
+    background-color: #f04747 !important;
 }
 
 .answer.selected.correct {
-    background-color: #43b581;
+    background-color: #43b581 !important;
 }
 
 .answer.selected, .answer:last-child {
@@ -156,13 +174,24 @@ body {
 
 ::-webkit-scrollbar {
     width: 0;
-    /* Remove scrollbar space */
     background: transparent;
-    /* Optional: just make scrollbar invisible */
 }
 
-/* Optional: show position indicator in red */
+/* Custom Cursor */
 
-::-webkit-scrollbar-thumb {
-    background: #FF0000;
+.cursor {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 5px;
+    background-color: #fff;
+    mix-blend-mode: difference;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    transition: .25s width, .25s height;
+}
+
+.cursor.hover {
+    width: 25px;
+    height: 25px;
 }
