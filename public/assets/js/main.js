@@ -5,7 +5,6 @@ $(window).on('resize', function () {
 
 const question = {
     select: (index = 0) => {
-        $(".answers").height($(".answers").height());
         $($(".answers .answer")[index]).addClass("selected");
         $(".answers").addClass("selected");
     },
