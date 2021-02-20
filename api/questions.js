@@ -7,6 +7,9 @@ module.exports = {
             return { error: true, msg: "Sessão inválida. Experimente atualizar a página" };
 
         let res = await sessionAPI.get(nonce);
+        if (res.data.finished)
+            return { error: true, msg: "Não foi possível obter a pergunta: este quiz já foi terminado" }
+
         let question = questions.find(q => { return q.index == res.data.order[res.data.current] });
         return {
             error: false,

@@ -107,4 +107,4 @@ dist
 .vscode/
 
 # Don't sync cache
-api/storage/
+.node-persist/storage/

@@ -43,7 +43,7 @@ module.exports = {
 
         let res = await storage.getItem(`session-${nonce}`);
 
-        if (res.nonce != nonce)
+        if (!res)
             return { error: true, msg: "Sessão inválida. Experimente atualizar a página" };
 
         return { error: false, data: res }
