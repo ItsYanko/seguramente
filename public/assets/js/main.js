@@ -13,6 +13,11 @@ const question = {
     },
     set: (data) => {
         $(".answers").removeClass("selected");
+        let listHTML;
+        data.forEach(e => {
+            listHTML += `<div class="answer"><span>${e}</span></div>`;
+        });
+        $(".answers").html(listHTML);
     }
 }
 function progress(val1, val2 = false) {

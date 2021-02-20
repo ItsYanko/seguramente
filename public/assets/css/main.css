@@ -145,7 +145,7 @@ body {
     background-color: #43b581;
 }
 
-.answer:last-child {
+.answer.selected, .answer:last-child {
     margin-bottom: 10px;
     border-radius: 0 0 20px 20px;
 }
