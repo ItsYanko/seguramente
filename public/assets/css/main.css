@@ -128,7 +128,7 @@ body {
 .answer.selected {
     opacity: 1 !important;
     display: flex !important;
-    height: 250px;
+    min-height: 100px;
     font-size: 30px;
     margin: 0;
 }

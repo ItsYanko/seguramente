@@ -14,7 +14,8 @@ module.exports = {
         return {
             error: false,
             data: {
-                index: res.data.order[res.data.current],
+                index: res.data.current,
+                of: questions.length,
                 question: question.question,
                 options: question.options
             }
@@ -40,22 +41,12 @@ module.exports = {
             res.data.finished = true;
         }
 
-        console.log(`${res.data.current} < ${questions.length} = ${res.data.current < questions.length}`)
         res.data.results[question.index] = valid;
         await sessionAPI.update(nonce, res.data);
 
-        console.log(res.data);
-
-        return { error: false, isValid: valid, isFinished: res.data.finished };
+        return { error: false, data: { isValid: valid, isFinished: res.data.finished } };
     },
     info: {
-        global: async () => {
-            return {
-                error: false, data: {
-                    questions: questions.length
-                }
-            }
-        },
         nonce: async (nonce) => {
             if (!await checkNonce(nonce))
                 return { error: true, msg: "Sessão inválida. Experimente atualizar a página" };

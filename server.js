@@ -28,11 +28,13 @@ app.get("/api/*", async (req, res) => {
                 res.json({ error: true, msg: _res.msg || "Sessão inválida", valid: false });
             } else {
                 const sendData = {
-                    nonce: _res.data,
-                    name: _res.name,
-                    created: _res.created
+                    nonce: _res.data.nonce,
+                    name: _res.data.name,
+                    created: _res.created,
+                    results: _res.data.results,
+                    finished: _res.data.finished,
                 }
-                res.json({ error: false, data: _res.data, valid: true });
+                res.json({ error: false, data: sendData, valid: true });
             }
             break;
         }
@@ -68,25 +70,6 @@ app.get("/api/*", async (req, res) => {
             break;
         }
 
-        case "question/info/global": {
-            let _res = await questions.info.global();
-            if (_res.error) {
-                res.json({ error: true, msg: _res.msg || "Erro ao obter informação." })
-            } else {
-                res.json({ error: false, data: _res.data });
-            }
-            break;
-        }
-
-        case "question/info/nonce": {
-            let _res = await questions.info.nonce(req.cookies.nonce);
-            if (_res.error) {
-                res.json({ error: true, msg: _res.msg || "Erro ao obter informação." })
-            } else {
-                res.json({ error: false, data: _res.data });
-            }
-            break;
-        }
         default:
             res.json({ error: true, msg: "Endpoint Inválido" });
             break;
