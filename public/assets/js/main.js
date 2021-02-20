@@ -13,7 +13,7 @@ const question = {
     },
     set: (data) => {
         $(".answers").removeClass("selected");
-        let listHTML;
+        let listHTML = '';
         data.forEach(e => {
             listHTML += `<div class="answer"><span>${e}</span></div>`;
         });
