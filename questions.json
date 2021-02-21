@@ -1,45 +1,95 @@
 [
     {
         "index": 0,
-        "question": "Pergunta 1",
+        "question": "Deves partilhar senhas de contas online?",
         "options": [
-            "Resposta 1",
-            "Resposta 2",
-            "Resposta 3"
+            "Sim",
+            "Não"
         ],
         "correct": 1
     },
     {
         "index": 1,
-        "question": "Pergunta 2",
+        "question": "O que pode um vírus de computador fazer?",
         "options": [
-            "Resposta 4",
-            "Resposta 5",
-            "Resposta 6",
-            "Resposta 7"
+            "Enviar spam para outras pessoas utilizando o teu endereço de e-mail",
+            "Roubar informações pessoais",
+            "Danificar o computador",
+            "Todas as anteriores"
         ],
-        "correct": 0
+        "correct": 3
     },
     {
         "index": 2,
-        "question": "Pergunta 3",
+        "question": "Os URLs de websites seguros começam por: ",
         "options": [
-            "Resposta 8",
-            "Resposta 9",
-            "Resposta 10",
-            "Resposta 11",
-            "Resposta 12",
-            "Resposta 13",
-            "Resposta 14"
+            "ftp://",
+            "http://",
+            "https://",
+            "ws://",
+            "wss://"
         ],
-        "correct": 5
+        "correct": 2
     },
     {
         "index": 3,
-        "question": "Pergunta 4",
+        "question": "Uma senha segura contém: ",
         "options": [
-            "Resposta 15",
-            "Resposta 16"
+            "Apenas letras",
+            "Apenas caracteres especiais",
+            "Apenas números",
+            "Uma mistura de letras, números e caracteres especiais"
+        ],
+        "correct": 3
+    },
+    {
+        "index": 4,
+        "question": "Uma senha segura e memorizável contém: ",
+        "options": [
+            "1-4 caracteres",
+            "5-8 caracteres",
+            "9-12 caracteres",
+            "13-16 caracteres"
+        ],
+        "correct": 2
+    },
+    {
+        "index": 5,
+        "question": "O conteúdo online, depois de publicado: ",
+        "options": [
+            "É completamente removido se eu o apagar",
+            "É visível apenas para mim",
+            "Está permanentemente online"
+        ],
+        "correct": 2
+    },
+    {
+        "index": 6,
+        "question": "O phishing é: ",
+        "options": [
+            "Um vírus",
+            "Um website feito para roubar senhas dos utilizadores",
+            "Um spyware"
+        ],
+        "correct": 1
+    },
+    {
+        "index": 7,
+        "question": "O phishing é: ",
+        "options": [
+            "Um vírus",
+            "Um website feito para roubar senhas dos utilizadores",
+            "Um spyware"
+        ],
+        "correct": 1
+    },
+    {
+        "index": 8,
+        "question": "Uma VPN: ",
+        "options": [
+            "Protege os meus dados e identidade",
+            "Rouba as minhas senhas e informação",
+            "Faz o computador mais rápido"
         ],
         "correct": 0
     }
