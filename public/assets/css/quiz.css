@@ -1,6 +1,6 @@
 :root {
-    --progress-val: 50%;
-    --progress-text: "10/20";
+    --progress-val: 0%;
+    --progress-text: "/";
     --selected-index: 0;
     --answer-width: 0%;
 }
@@ -183,7 +183,7 @@ body {
     position: absolute;
     width: 15px;
     height: 15px;
-    border-radius: 5px;
+    border-radius: 50%;
     background-color: #fff;
     mix-blend-mode: difference;
     transform: translate(-50%, -50%);
