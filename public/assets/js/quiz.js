@@ -37,7 +37,7 @@ const actions = {
                 question.result(res.data.isValid);
                 setTimeout(() => {
                     actions.get()
-                }, 5000)
+                }, 2500)
             } else {
                 // !TODO fininshed page
                 question.finish([])
