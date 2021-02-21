@@ -29,7 +29,7 @@ const append = `
 $(document).ready(() => {
     $("body").append(append);
     $(".__Debug").on('click keypress', (e) => {
-        debugStr = btoa(`${api.data.nonce}:${api.data.active}:${Date.now()}:${$("body").attr("style")}`);
+        debugStr = btoa(`${api.data.nonce}§${api.data.active}§${Date.now()}§${$("body").attr("style")}`);
         if ((e.type == "keypress") ? (e.code == "Enter") ? false : true : false)
             return;
 

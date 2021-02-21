@@ -1,0 +1,91 @@
+<head>
+    <meta encoding="UTF8">
+    <title>Seguramente | Decodificador de Erro</title>
+    <script src="/assets/js/jquery.min.js"></script>
+    <script>
+        $(document).ready(() => {
+            $("#input").on("keyup change", () => {
+                if ($(".modal").hasClass("active"))
+                    return;
+
+                const val = $("#input").val();
+                let data;
+                try {
+                    data = atob(val);
+                } catch (e) {
+                    $(".data").html("");
+                    return;
+
+                }
+
+                data = data.split('§');
+                let procData = {
+                    nonce: data[0],
+                    api_active: data[1],
+                    timestamp: data[2],
+                    css_perc: data[3].split(";")[0],
+                    css_text: data[3].split(";")[1]
+                }
+
+                let listHTML = '';
+                Object.keys(procData).forEach(k => {
+                    listHTML += `<div class="pair"><span class="key">${k}</span><span class="value">${procData[k]}</span></div>`;
+                })
+                $(".data").html(listHTML);
+            })
+        })
+    </script>
+    <style>
+        body {
+            background-color: black;
+            font-family: 'Roboto';
+        }
+        
+        .row {
+            width: 100%;
+            height: fit-content;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 100px;
+        }
+        
+        .data {
+            display: flex;
+            flex-wrap: wrap;
+            width: 70%;
+            max-width: 750px;
+            color: #fff;
+            background-color: #4a4a4ab3;
+            border-radius: 25px;
+            padding: 25px;
+            box-shadow: 0 0 10px #ffffff40;
+        }
+        
+        .pair {
+            width: 100%;
+            margin: 10px;
+            padding: 2.5px;
+            border-radius: 2px;
+            background: #ffffff1f;
+            box-shadow: 0 0 10px #00000080;
+        }
+        
+        .key {
+            padding-right: 5px;
+        }
+        
+        .value {
+            background: #ffffff40;
+            padding: 2.5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <input id="input">
+    </div>
+    <div class="row">
+        <div class="data"></div>
+    </div>
+</body>
