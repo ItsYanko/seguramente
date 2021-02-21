@@ -26,7 +26,7 @@ body {
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    background-color: #fff;
+    background-color: #000000;
     box-shadow: 0 0 10px black;
     transform: translate(-50%, -50%);
     pointer-events: none;

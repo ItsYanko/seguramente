@@ -13,7 +13,7 @@ const append = `
     background-image: url(/assets/img/warn.png);
     background-size: cover;
 
-    filter: opacity(0.5) blur(2px);
+    filter: opacity(0.5) blur(1px);
     border-radius: 0px 10px 0px 0px;
 
     transition: .2s filter;
