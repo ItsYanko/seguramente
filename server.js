@@ -96,7 +96,7 @@ app.get("/resposta/*", async (req, res) => {
                 if (results[k])
                     resultsData.correct++
 
-                ansHTML += `<span class="${(results[k]) ? "correct" : "incorrect"}">${questionsJSON.find(e => { return e.index == k }).question}</span>`
+                ansHTML += `<span class="${(results[k]) ? "correct" : "incorrect"}">${questionsJSON.find(e => { return e.index == k }).title}</span>`
             })
 
             let edited = _doc.replace('~nome~', data.data.name);
