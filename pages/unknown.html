@@ -1,0 +1,61 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguramente | ID Inválido</title>
+    <link rel="icon" href="/favicon.ico">
+    <script src="/assets/js/jquery.min.js"></script>
+    <script>
+        $(window).on('contextmenu', e => {
+            e.preventDefault()
+        })
+    </script>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto';
+            /* BACKGROUND */
+            background: url(/assets/img/bg.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100%;
+            user-select: none;
+            /* Format inner */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .box {
+            width: 70%;
+            max-width: 750px;
+            padding: 25px;
+            border-radius: 25px;
+            background-color: #ffffff;
+            text-align: center;
+        }
+        
+        .btn {
+            border-radius: 15px;
+            padding: 15px;
+            margin: auto;
+            margin-bottom: 10px;
+            background-color: #9000ffef;
+            color: #ffffff;
+            width: fit-content;
+            cursor: pointer;
+            transition: .1s background-color;
+        }
+        
+        .btn:hover {
+            background-color: #9100ffbf;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h1>ID Inválido!</h1>
+        <div class="btn" onclick="window.location.href = '/'">Ir para a página inicial</div>
+    </div>
+</body>

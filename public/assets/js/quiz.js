@@ -20,6 +20,10 @@ $(document).ready(async () => {
 
 })
 
+$(window).on('contextmenu', e => {
+    e.preventDefault()
+})
+
 $(window).on('resize', () => {
     resizeText();
 })
@@ -52,8 +56,10 @@ const actions = {
                     actions.get()
                 }, 2500)
             } else {
-                // !TODO fininshed page
-                question.finish([])
+                question.result(res.data.isValid);
+                setTimeout(() => {
+                    question.finish()
+                }, 2500)
             }
         }
     },
@@ -103,7 +109,7 @@ const question = {
         }
     },
     finish: (data) => { // Show finished screen
-        alert("Quiz terminado!")
+        window.location.href = `/resposta/${api.data.nonce}`
     }
 }
 

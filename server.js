@@ -1,3 +1,4 @@
+const fs = require('fs')
 const express = require("express");
 const cookieParser = require('cookie-parser')
 let app = express();
@@ -5,6 +6,7 @@ let app = express();
 /* APIs internos */
 const sessions = require("./api/sessions");
 const questions = require("./api/questions");
+const questionsJSON = require("./questions.json");
 const { json } = require("body-parser");
 
 /* Ficheiros Estáticos */
@@ -22,7 +24,7 @@ app.get("/api/*", async (req, res) => {
         }
 
         case "session/get": {
-            let _res = await sessions.get(req.cookies.nonce);
+            let _res = await sessions.get(req.query.nonce || req.cookies.nonce);
             if (_res.error) {
                 res.cookie('nonce', '');
                 res.json({ error: true, msg: _res.msg || "Sessão inválida", valid: false });
@@ -76,7 +78,44 @@ app.get("/api/*", async (req, res) => {
     }
 });
 
+app.get("/resposta/*", async (req, res) => {
+    const nonce = req.path.replace('/resposta/', '');
+    let data = await sessions.get(nonce);
+    if (data.error || !data.data.finished) {
+        res.sendFile(__dirname + "/pages/unknown.html");
+    } else {
+        fs.readFile(__dirname + '/pages/response.html', 'utf8', function (err, _doc) {
+            if (err)
+                res.json(err)
+
+            let results = data.data.results;
+            let resultsData = { correct: 0, total: 0 };
+            let ansHTML = ''
+            Object.keys(results).forEach(k => {
+                resultsData.total++
+                if (results[k])
+                    resultsData.correct++
+
+                ansHTML += `<span class="${(results[k]) ? "correct" : "incorrect"}">${questionsJSON.find(e => { return e.index == k }).question}</span>`
+            })
+
+            let edited = _doc.replace('~nome~', data.data.name);
+            edited = edited.replace('~rank~', "");
+            edited = edited.replace(`"~c_perc~"`, resultsData.correct / resultsData.total * 100 + '%');
+            edited = edited.replace('~c/t~', `${resultsData.correct} / ${resultsData.total}`);
+            edited = edited.replace('~answers~', ansHTML);
+            res.send(edited);
+        });
+    }
+});
+
+/* 404 */
+app.all("*", (req, res) => {
+    res.sendFile(__dirname + "/pages/404.html")
+});
+
 /* Inicialização */
+
 (async () => {
     await sessions.load();
     await questions.load(sessions);

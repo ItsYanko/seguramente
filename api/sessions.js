@@ -69,8 +69,8 @@ module.exports = {
         await storage.init();
         await storage.forEach(e => {
             if (e.key.startsWith("session-")) {
+                keycache.push(e.value.nonce);
                 if (!e.value.finished) {
-                    keycache.push(e.value.nonce);
                     setDeleteTimeout(e.value.nonce, e.value.created + timeout);
                 }
             }
