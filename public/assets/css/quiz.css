@@ -198,6 +198,7 @@ body {
 /* Custom Cursor */
 
 .cursor {
+    z-index: 999;
     position: absolute;
     width: 15px;
     height: 15px;

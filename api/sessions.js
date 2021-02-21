@@ -64,7 +64,8 @@ module.exports = {
         await storage.removeItem(`session-${nonce}`);
         return { error: false }
     },
-    rank: async () => {
+    /* Melhores resultados das últimas X horas */
+    recent: async () => {
 
     },
     /* Carregar da storage */
