@@ -3,11 +3,15 @@
     --progress-text: "/";
     --selected-index: 0;
     --answer-width: 0%;
-    --answer-post-width: 0%;
+    --cursor: none;
 }
 
 * {
-    cursor: none;
+    cursor: var(--cursor);
+}
+
+html.mobile {
+    --cursor: default;
 }
 
 body {
@@ -68,7 +72,7 @@ body {
     align-items: center;
     color: #ffffff;
     font-size: 25px;
-    mix-blend-mode: soft-light;
+    filter: drop-shadow(0px 0px 5px black);
 }
 
 /* Caixa de respostas (e pergunta) */
