@@ -94,7 +94,7 @@ const question = {
             $(".answers").removeClass("selected");
             let listHTML = '';
             data.forEach(e => {
-                listHTML += `<div class="answer"><span>${e}</span></div>`;
+                listHTML += `<div class="answer" tabindex="0"><span>${e}</span></div>`;
             });
             $(".answers").html(listHTML);
             $(".answer").click((e) => {

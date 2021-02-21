@@ -64,6 +64,9 @@ module.exports = {
         await storage.removeItem(`session-${nonce}`);
         return { error: false }
     },
+    rank: async () => {
+
+    },
     /* Carregar da storage */
     load: async () => {
         await storage.init();

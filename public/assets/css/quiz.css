@@ -112,7 +112,6 @@ body {
     flex-wrap: wrap;
     height: fit-content;
     overflow: auto;
-    border-radius: 0 0 20px 20px;
 }
 
 .answer {
@@ -171,9 +170,10 @@ body {
     animation: fill-in 2.5s;
 }
 
-.answer:hover {
+.answer:focus, .answer:hover {
     background-color: #522da8bf;
     box-shadow: 0 0 10px #00000080;
+    outline: none;
 }
 
 .answer.selected.incorrect {
@@ -214,7 +214,7 @@ body {
     height: 25px;
 }
 
-/* (in) correct answer timeout */
+/* (in)correct answer timeout */
 
 @keyframes fill-in {
     0% {
