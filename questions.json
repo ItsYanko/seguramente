@@ -65,20 +65,22 @@
         "options": [
             "É completamente removido se eu o apagar",
             "É visível apenas para mim",
-            "Está permanentemente online"
+            "Está permanentemente online",
+            "Nenhuma das anteriores"
         ],
-        "correct": 2
+        "correct": 3
     },
     {
         "index": 6,
-        "title": "Phishing",
-        "question": "O phishing é: ",
+        "title": "Tipo de Vírus",
+        "question": "Qual das seguintes opções não é um tipo de vírus?",
         "options": [
-            "Um vírus",
-            "Um website feito para roubar senhas dos utilizadores",
-            "Um spyware"
+            "Keylogger",
+            "Cavalo de Tróia",
+            "Cookie",
+            "Worm"
         ],
-        "correct": 1
+        "correct": 2
     },
     {
         "index": 7,
@@ -87,7 +89,8 @@
         "options": [
             "Um vírus",
             "Um website feito para roubar senhas dos utilizadores",
-            "Um spyware"
+            "Um spyware",
+            "Um malware"
         ],
         "correct": 1
     },
@@ -98,7 +101,8 @@
         "options": [
             "Protege os meus dados e identidade",
             "Rouba as minhas senhas e informação",
-            "Faz o computador mais rápido"
+            "Faz o computador mais rápido",
+            "Nenhuma das anteriores"
         ],
         "correct": 0
     },
