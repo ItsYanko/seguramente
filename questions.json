@@ -101,5 +101,17 @@
             "Faz o computador mais rápido"
         ],
         "correct": 0
+    },
+    {
+        "index": 9,
+        "title": "Idade",
+        "question": "A tua faixa etária é: ",
+        "options": [
+            "6 - 10",
+            "11 - 12",
+            "13 - 15",
+            "16+"
+        ],
+        "correct": -1
     }
 ]

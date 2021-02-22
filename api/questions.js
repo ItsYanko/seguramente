@@ -33,7 +33,7 @@ module.exports = {
         if (answerIndex < 0 || answerIndex >= question.options.length)
             return { error: true, msg: "Opção inválida!" };
 
-        const valid = question.correct == answerIndex;
+        const valid = (question.correct == -1) ? true : question.correct == answerIndex;
 
         if (res.data.current + 1 < questions.length) {
             res.data.current = res.data.current + 1;
