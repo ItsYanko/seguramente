@@ -37,7 +37,7 @@ $(window).on('contextmenu', e => {
 /* Custom Cursor */
 $(window).on('mousemove', (e) => {
     if (!isMobile) {
-        if ($(e.target).parent().hasClass("go") || $(e.target).is("a") || $(e.target).is("input"))
+        if ($(e.target).hasClass("go") || $(e.target).is("a") || $(e.target).is("input"))
             $(".cursor").addClass("hover");
         else
             $(".cursor").removeClass("hover");
