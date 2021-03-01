@@ -16,7 +16,7 @@ $(document).ready(async () => {
     })
 
     $(".input-container input").on('keypress', async (e) => {
-        if (loading || !e.code == "Enter")
+        if (loading || e.code != "Enter")
             return;
 
         action();
