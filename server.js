@@ -11,7 +11,7 @@ const { json } = require("body-parser");
 
 /* Ficheiros Estáticos */
 app.use(cookieParser());
-app.use(express.static("public"));
+app.use("/assets", express.static("public/assets"));
 
 /* API */
 app.get("/api/*", async (req, res) => {
@@ -42,7 +42,7 @@ app.get("/api/*", async (req, res) => {
         }
 
         case "session/create": {
-            let _res = await sessions.create(req.query.name);
+            let _res = await sessions.create(req.query.name || false);
             if (_res.error) {
                 res.json({ error: true, msg: _res.msg || "Erro ao inicializar o jogo. Tente limpar os cookies." });
             } else {
@@ -78,6 +78,7 @@ app.get("/api/*", async (req, res) => {
     }
 });
 
+/* Pagina de resposta */
 app.get("/resposta/*", async (req, res) => {
     const nonce = req.path.replace('/resposta/', '');
     let data = await sessions.get(nonce);
@@ -108,6 +109,16 @@ app.get("/resposta/*", async (req, res) => {
         });
     }
 });
+
+/* Pagina principal */
+app.get("/", (req, res) => {
+    res.sendFile(__dirname + "/public/index.html")
+})
+
+/* Pagina do quiz */
+app.get("/quiz", (req, res) => {
+    res.sendFile(__dirname + "/public/quiz.html")
+})
 
 /* 404 */
 app.all("*", (req, res) => {

@@ -20,13 +20,13 @@ class seguramente {
         })();
     }
 
-    async start(nonce = false, force = false) {
+    async start(nonce = false, force = false, name = false) {
         if (this.data.nonce && !force)
             return { error: true, msg: "Já existe uma sessão ativa" }
 
         if (!nonce) {
             try {
-                let res = await $.get(`${this.data.api}session/create`).promise();
+                let res = await $.get(`${this.data.api}session/create`, {name: name || false}).promise();
                 if (res.error) {
                     return { error: true, msg: res.msg || "Erro ao criar sessão" }
                 } else {

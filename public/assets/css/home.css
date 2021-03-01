@@ -18,6 +18,46 @@ body {
     align-items: center;
 }
 
+/* Input + BTN */
+
+.input-container {
+    display: flex;
+    justify-content: space-between;
+    background: #ffffff;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px #4e4e4e;
+    width: 70%;
+    max-width: 500px;
+}
+
+.input-container input {
+    border: none;
+    font-size: 25px;
+    width: calc(100% - 50px);
+    height: 30px;
+    outline: none;
+    margin: 5px;
+    padding: 2.5px;
+}
+
+.go {
+    height: 40px;
+    width: 40px;
+    border-radius: 0px 7.5px 7.5px 0px;
+    background-color: #673AB7;
+    background-image: url(/assets/img/arrow.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    outline: none;
+    transition: .2s background-color, .2s filter;
+}
+
+.go:hover, .go:focus {
+    background-color: #512da8;
+    filter: drop-shadow(0px 0px 2.5px #393939);
+}
+
 /* Custom Cursor */
 
 .cursor {

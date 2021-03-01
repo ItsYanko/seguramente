@@ -1,4 +1,4 @@
-let isMobile = false;
+let isMobile = loading = false;
 $(document).ready(async () => {
     /* Mobile Detection */
     if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent)
@@ -7,7 +7,28 @@ $(document).ready(async () => {
         $("html").addClass("mobile");
         $(".cursor").hide();
     }
+
+    $(".go").on('click keypress', async (e) => {
+        if (loading || (e.type == "keypress") ? (e.code == "Enter" || e.code == "Space") ? false : true : false)
+            return;
+
+        action();
+    })
+
+    $(".input-container input").on('keypress', async (e) => {
+        if (loading || !e.code == "Enter")
+            return;
+
+        action();
+    })
 })
+
+async function action() {
+    loading = true;
+    let sesh = await new seguramente();
+    await sesh.start(false, false, $(".input-container input").val() || false);
+    document.location.href = "/quiz"
+}
 
 $(window).on('contextmenu', e => {
     e.preventDefault()
