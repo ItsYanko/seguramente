@@ -31,7 +31,7 @@ $(window).on('resize', () => {
 /* Custom Cursor */
 $(window).on('mousemove', (e) => {
     if (!isMobile) {
-        if ($(e.target).hasClass("answer") || $(e.target).parent().hasClass("answer"))
+        if ($(e.target).hasClass("answer") || $(e.target).parent().hasClass("answer") || $(e.target).is("a"))
             $(".cursor").addClass("hover");
         else
             $(".cursor").removeClass("hover");
